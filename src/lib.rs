@@ -97,7 +97,7 @@ mod tests {
         let initial_state = 0 as usize;
         let final_state = simple_final_state;
         let get_new_states = simple_get_new_states;
-        let res = super::faster_breadth_first_search(&maze, initial_state, final_state, get_new_states);
+        let res = super::breadth_first_search(&maze, initial_state, final_state, get_new_states);
         assert_eq!(res, Some(vec![0, 1, 2, 3, 4, 5]));
     }
 
@@ -111,7 +111,7 @@ mod tests {
                                        vec![1, 1, 1, 0, 1, 1],
                                        vec![1, 0, 0, 0, 0, 1],
                                        vec![1, 1, 1, 1, 1, 1]];
-        let res = super::faster_breadth_first_search(
+        let res = super::breadth_first_search(
             &maze, 
             (4, 6), 
             |maze: &Vec<Vec<i32>>, x: &(usize, usize)| { maze[x.1][x.0] == 2 }, 
